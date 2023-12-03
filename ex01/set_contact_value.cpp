@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_contact_value.cpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 20:17:04 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/12/03 14:11:36 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/12/03 16:27:06 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,33 @@ void Contact::set_contact(void)
 		std::cin >> this->info_value[i];
 		i++;
 	}
-	std::cout << "Your contact have been successfully registered " << std::endl;
+	std::cout << "Your contact have been successfully registered." << std::endl;
 	return ;
 }
 
+// index番号に応じたものの全ての情報を表示する。
+// 必要な項目の洗い出しと構造化をもう一度やってみる必要がある。
 void Contact::get_contact(void)
 {
+
+	std::cout << std::left << std::setw(20) << "first name" << ": " <<  std::endl;
+	return ;
+}
+
+// 全ての連絡先の情報が４項目のみ記入されるようにする
+void Contact::print_allcontact(int max_index)
+{
+	int i = 0;
+
+	std::cout << "|0123456789|0123456789|0123456789|0123456789|" << std::endl;
+	std::cout << "|     index|first name| last name|  nickname|" << std::endl;
+	std::cout << "|**********|**********|**********|**********|" << std::endl;
+	while (i < max_index)
+	{
+		std::cout <<  "|" << std::setw(10) << (i + 1) <<  "|";
+		while (this.)
+ 		std::cout << std::setw(10) <<  << std::endl;
+
+	}
 	return ;
 }

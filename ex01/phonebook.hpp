@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 20:18:51 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/12/02 11:48:12 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/12/03 15:06:23 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 # define PHONEBOOK_HPP
 
 # include <iostream>
+# include <iomanip>
 # include <cctype>
+# include <cstdlib>
 
 class Contact
 {
@@ -30,6 +32,7 @@ class Contact
 
 		void set_contact(void);
 		void get_contact(void);
+		void print_allcontact(int max_index);
 };
 
 class Phonebook
