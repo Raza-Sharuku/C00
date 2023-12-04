@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 20:22:39 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/12/04 09:35:18 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/12/04 09:38:47 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,22 @@ void    Phonebook::set_information(void)
 void    Phonebook::get_information(void)
 {
     std::string	num;
+    int         i;
 
 	std::cout << "Input the index_number which you want to search." << std::endl;
 	std::cout << "Allowed Index_numbers are 1 to" << (this->max_index + 1) << std::endl;
 	std::cin >> num;
 
-    if (num.compare("0") == 0 || num.compare(std::to_string(this->max_index)) < 0)
-	this->contact[num - 1].get_contact();
+    if (num.compare("0") == 0 || num.compare(std::to_string(this->max_index + 1)) > 0 || num.length() > 1)
+    {
+        std::cout << "Wrong index_number. Allowed Index_numbers are 1 to" << (this->max_index + 1) << std::endl;
+        return ;
+    }
+    else 
+    {
+        i = std::atoi(num.c_str());
+    	this->contact[i - 1].get_contact();
+    }
     return ;
 };
 
