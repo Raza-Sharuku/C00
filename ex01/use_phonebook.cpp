@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 20:22:39 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/12/04 09:38:47 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/12/04 10:27:28 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Phonebook::~Phonebook(void)
 
 void    Phonebook::set_information(void)
 {
-    int i;
+    // int i;
 
     
     if (this->index > 7)
@@ -49,13 +49,15 @@ void    Phonebook::get_information(void)
     std::string	num;
     int         i;
 
-	std::cout << "Input the index_number which you want to search." << std::endl;
-	std::cout << "Allowed Index_numbers are 1 to" << (this->max_index + 1) << std::endl;
+    this->contact->print_allcontact(this->max_index);
+	std::cout << "\nInput the index_number which you want to search." << std::endl;
+	std::cout << "Allowed Index_numbers are 1 to" << (this->max_index) << std::endl;
+	std::cout << ">>";
 	std::cin >> num;
 
-    if (num.compare("0") == 0 || num.compare(std::to_string(this->max_index + 1)) > 0 || num.length() > 1)
+    if (num.compare("0") == 0 || num.compare(std::to_string(this->max_index)) > 0 || num.length() > 1)
     {
-        std::cout << "Wrong index_number. Allowed Index_numbers are 1 to" << (this->max_index + 1) << std::endl;
+        std::cout << "Wrong index_number. Allowed Index_numbers are 1 to" << (this->max_index) << std::endl;
         return ;
     }
     else 

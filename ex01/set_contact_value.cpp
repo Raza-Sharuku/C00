@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_contact_value.cpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 20:17:04 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/12/03 16:27:06 by sraza            ###   ########.fr       */
+/*   Updated: 2023/12/04 10:39:25 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void Contact::set_contact(void)
 	std::cout << "Now you can registered contact informations." << std::endl;
 	while (i < 5)
 	{
-		std::cout << "Enter your" << this->information[i]  << std::endl;
+		std::cout << "Enter your " << this->information[i]  << std::endl;
 		std::cin >> this->info_value[i];
 		i++;
 	}
@@ -43,7 +43,11 @@ void Contact::set_contact(void)
 void Contact::get_contact(void)
 {
 
-	std::cout << std::left << std::setw(20) << "first name" << ": " <<  std::endl;
+	std::cout << std::left << std::setw(20) << "Fisrt Name" << ":" << this->info_value[0] << std::endl;
+	std::cout << std::left << std::setw(20) << "Last Name" << ":" << this->info_value[1] << std::endl;
+	std::cout << std::left << std::setw(20) << "Nickname" << ":" << this->info_value[2] << std::endl;
+	std::cout << std::left << std::setw(20) << "Phone Number" << ":" << this->info_value[3] << std::endl;
+	std::cout << std::left << std::setw(20) << "Darkest Secret" << ":" << this->info_value[4] << std::endl;
 	return ;
 }
 
@@ -51,16 +55,26 @@ void Contact::get_contact(void)
 void Contact::print_allcontact(int max_index)
 {
 	int i = 0;
+	int j = 0;
 
 	std::cout << "|0123456789|0123456789|0123456789|0123456789|" << std::endl;
 	std::cout << "|     index|first name| last name|  nickname|" << std::endl;
-	std::cout << "|**********|**********|**********|**********|" << std::endl;
+	std::cout << "|----------|----------|----------|----------|";
 	while (i < max_index)
 	{
+		std::cout << "\n";
 		std::cout <<  "|" << std::setw(10) << (i + 1) <<  "|";
-		while (this.)
- 		std::cout << std::setw(10) <<  << std::endl;
-
+		j = 0;
+		while (j <= 2)
+		{
+			if (this[i].info_value[j].length() > 10)
+ 				std::cout << this[i].info_value[j].substr(0, 9) << "." << "|";
+			else 
+ 				std::cout << std::setw(10) << this[i].info_value[j] << "|";
+			j++;
+		}
+		i++;
 	}
+	std::cout << "\n|----------|----------|----------|----------|" << std::endl;
 	return ;
 }

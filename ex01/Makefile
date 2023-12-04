@@ -2,7 +2,9 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXXFLAGS += -g -fsanitize=address
 NAME = Phonebook
-SRCS = main.cpp
+SRCS = main.cpp \
+	   use_phonebook.cpp \
+	   set_contact_value.cpp \
 
 OBJS = ${SRCS:.cpp=.o}
 
