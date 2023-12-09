@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 20:40:28 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/12/09 20:40:55 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/12/09 20:51:12 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,18 @@
 # include <iostream>
 # include <string>
 
-class Weapon
+class Harl
 {
 	private:
-		std::string	_type;
+		void _debug(void);
+		void _info(void);
+		void _warning(void);
+		void _error(void);
 	public:
-		Weapon(void);
-		Weapon(std::string type);
-		~Weapon(void);
+		Harl(void);
+		~Harl(void);
 
-		const std::string &getType() const;
-		void setType(std::string type);
+		void complain(std::string level);
 };
 
 
