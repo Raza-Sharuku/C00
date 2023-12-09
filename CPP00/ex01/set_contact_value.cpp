@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 20:17:04 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/12/04 10:39:25 by razasharuku      ###   ########.fr       */
+/*   Updated: 2023/12/04 12:57:00 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void Contact::print_allcontact(int max_index)
 	std::cout << "|----------|----------|----------|----------|";
 	while (i < max_index)
 	{
-		std::cout << "\n";
+		std::cout << "" << std::endl;
 		std::cout <<  "|" << std::setw(10) << (i + 1) <<  "|";
 		j = 0;
 		while (j <= 2)
