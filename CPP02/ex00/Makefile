@@ -2,7 +2,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXXFLAGS += -g -fsanitize=address
 NAME = ex00
-SRCS = main.cpp 
+SRCS = main.cpp Fixed.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
