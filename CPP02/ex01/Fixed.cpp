@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:10:21 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/01/27 19:20:22 by sraza            ###   ########.fr       */
+/*   Updated: 2024/01/28 16:03:41 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,23 @@ Fixed::Fixed(void)
     return ;
 }
 
+Fixed::Fixed(const int i)
+{
+    std::cout << "Int constructor called" << std::endl;
+    this->_fixed_point_num_value = i;
+}
+
+Fixed::Fixed(const float f)
+{
+    std::cout << "Float constructor called" << std::endl;
+    this->_fixed_point_num_value = f;
+}
+
 // copy constructor
 Fixed::Fixed(const Fixed &obj) : _fixed_point_num_value(obj._fixed_point_num_value)
 {
     std::cout << "Copy Constructor called" << std::endl;
+    this->_fixed_point_num_value = getRawBits();
     return ;
 }
 
@@ -34,10 +47,16 @@ Fixed &Fixed::operator = (const Fixed &obj)
     std::cout << "Copy assignment operator called" << std::endl;
     if (this != &obj)
     {
-        this->_fixed_point_num_value = getRawBits();
+        this->_fixed_point_num_value = obj.getRawBits();
     }
     return *this;
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
+{
+    os << fixed.getRawBits();
+    return os;
+}
 
 // デストラクタ
 Fixed::~Fixed(void)
@@ -46,6 +65,8 @@ Fixed::~Fixed(void)
     return ;
 }
 
+
+// メンバ関数
 int Fixed::getRawBits(void) const
 {
     std::cout << "getRawBits member function called" << std::endl;
@@ -56,4 +77,14 @@ void Fixed::setRawBits(int const raw)
 {
     this->_fixed_point_num_value = raw;
     return ;
+}
+
+float	Fixed::toFloat(void) const
+{
+    return ((float)this->_fixed_point_num_value);
+}
+
+int		Fixed::toInt(void) const
+{
+    return ((int)this->_fixed_point_num_value);
 }

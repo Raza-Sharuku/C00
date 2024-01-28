@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 19:29:35 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/01/27 18:52:32 by sraza            ###   ########.fr       */
+/*   Updated: 2024/01/28 16:00:44 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <iomanip>
 # include <cctype>
 # include <cstdlib>
+# include <cmath>
 # include <new>
 
 class Fixed
@@ -27,19 +28,25 @@ class Fixed
 	public:
 		// constructor
 		Fixed(void);
+		Fixed(const int i);
+		Fixed(const float f);
 
 		// copy constructor
 		Fixed(const Fixed &obj);
 
 		// copy assignment operator overload
-		Fixed& operator = (const Fixed &obj); 
+		Fixed& operator = (const Fixed &obj);
+		//std::ostream& operator << (std::ostream& os, Fixed& a) const;
 		
 		// destructor
 		~Fixed(void); 
 
+	float	toFloat(void) const;
+	int		toInt(void) const;
     int     getRawBits(void) const;
     void    setRawBits(int const raw);
 };
 
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif

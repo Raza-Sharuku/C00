@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raza.cpp                                           :+:      :+:    :+:   */
+/*   test.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 19:35:07 by razasharuku       #+#    #+#             */
-/*   Updated: 2023/12/09 20:39:10 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/01/27 16:17:26 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,23 +40,23 @@ int main() {
     std::cout << "pos = " << pos << std::endl;
 
     // 文字列の比較
-    int compareResult = str.compare("other_string");
+    // int compareResult = str.compare("other_string");
 
     // 部分文字列の取得
     std::cout <<  str.substr(0, 5)  << std::endl;
 
     // 文字列の変換
-    const char* cStr = str.c_str();
-    const char* data = str.data();
-    str.resize(15);
-    std::cout << "String: " << str << std::endl;
-    str.resize(20, 'A');
-    std::cout << "String: " << str << std::endl;
+    // const char* str = str.c_str();
+    // const char* data = str.data();
+    // str.resize(15);
+    // std::cout << "String: " << str << std::endl;
+    // str.resize(20, 'A');
+    // std::cout << "String: " << str << std::endl;
 
-    // 文字列の属性
-    size_t length = str.length();
-    size_t size = str.size();
-    bool empty = str.empty();
+    // // 文字列の属性
+    // size_t length = str.length();
+    // size_t size = str.size();
+    // bool empty = str.empty();
 
     // 出力
     std::cout << "String: " << str << std::endl;
