@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:10:21 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/01/28 16:03:41 by sraza            ###   ########.fr       */
+/*   Updated: 2024/02/03 12:04:44 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,14 @@ Fixed::Fixed(void)
 Fixed::Fixed(const int i)
 {
     std::cout << "Int constructor called" << std::endl;
-    this->_fixed_point_num_value = i;
+    this->_fixed_point_num_value = i << this->_fractional_bits;
 }
 
 Fixed::Fixed(const float f)
 {
     std::cout << "Float constructor called" << std::endl;
-    this->_fixed_point_num_value = f;
+    this->_fixed_point_num_value = roundf(f * pow(2, this->_fractional_bits));
+    return ;
 }
 
 // copy constructor
@@ -42,21 +43,15 @@ Fixed::Fixed(const Fixed &obj) : _fixed_point_num_value(obj._fixed_point_num_val
 }
 
 // copy assignment operator overload
-Fixed &Fixed::operator = (const Fixed &obj)
+Fixed& Fixed::operator=(const Fixed &obj)
 {
     std::cout << "Copy assignment operator called" << std::endl;
     if (this != &obj)
     {
-        this->_fixed_point_num_value = obj.getRawBits();
+        this->_fixed_point_num_value = obj._fixed_point_num_value;
     }
     return *this;
 };
-
-std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
-{
-    os << fixed.getRawBits();
-    return os;
-}
 
 // デストラクタ
 Fixed::~Fixed(void)
@@ -69,7 +64,6 @@ Fixed::~Fixed(void)
 // メンバ関数
 int Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits member function called" << std::endl;
     return (this->_fixed_point_num_value);
 }
 
@@ -81,10 +75,16 @@ void Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat(void) const
 {
-    return ((float)this->_fixed_point_num_value);
+    return ((float)(this->_fixed_point_num_value / pow(2, this->_fractional_bits)));
 }
 
 int		Fixed::toInt(void) const
 {
-    return ((int)this->_fixed_point_num_value);
+    return ((int)(this->_fixed_point_num_value >> this->_fractional_bits));
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
+{
+    os << fixed.toFloat();
+    return os;
 }

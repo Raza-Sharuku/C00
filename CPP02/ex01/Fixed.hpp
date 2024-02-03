@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 19:29:35 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/01/28 16:00:44 by sraza            ###   ########.fr       */
+/*   Updated: 2024/02/03 11:54:08 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ class Fixed
 		Fixed(const Fixed &obj);
 
 		// copy assignment operator overload
-		Fixed& operator = (const Fixed &obj);
-		//std::ostream& operator << (std::ostream& os, Fixed& a) const;
+		Fixed& operator=(const Fixed &obj);
 		
 		// destructor
 		~Fixed(void); 
 
+	//　メンバ関数
 	float	toFloat(void) const;
 	int		toInt(void) const;
     int     getRawBits(void) const;
