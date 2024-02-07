@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:10:21 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/03 15:38:38 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/07 11:52:28 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,44 +78,44 @@ int		Fixed::toInt(void) const
 }
 
 // 比較演算子の分
-bool    Fixed::operator>(const Fixed &obj)
+bool    Fixed::operator>(const Fixed &obj) const
 {
 
     return (this->_fixed_point_num_value > obj._fixed_point_num_value);
 }
 
-bool    Fixed::operator<(const Fixed &obj)
+bool    Fixed::operator<(const Fixed &obj) const
 {
 
     return (this->_fixed_point_num_value < obj._fixed_point_num_value);
 }
 
-bool    Fixed::operator>=(const Fixed &obj)
+bool    Fixed::operator>=(const Fixed &obj) const
 {
 
     return (this->_fixed_point_num_value >= obj._fixed_point_num_value);
 }
 
-bool    Fixed::operator<=(const Fixed &obj)
+bool    Fixed::operator<=(const Fixed &obj) const
 {
 
     return (this->_fixed_point_num_value <= obj._fixed_point_num_value);
 }
 
-bool    Fixed::operator==(const Fixed &obj)
+bool    Fixed::operator==(const Fixed &obj) const
 {
 
     return (this->_fixed_point_num_value == obj._fixed_point_num_value);
 }
 
-bool    Fixed::operator!=(const Fixed &obj)
+bool    Fixed::operator!=(const Fixed &obj) const
 {
 
     return (this->_fixed_point_num_value != obj._fixed_point_num_value);
 }
 
 // 四則演算子の分
-Fixed   Fixed::operator+(const Fixed &obj)
+Fixed   Fixed::operator+(const Fixed &obj) const
 {
     Fixed new_value;
 
@@ -123,7 +123,7 @@ Fixed   Fixed::operator+(const Fixed &obj)
     return (new_value);
 }
 
-Fixed   Fixed::operator-(const Fixed &obj)
+Fixed   Fixed::operator-(const Fixed &obj) const
 {
     Fixed new_value;
 
@@ -131,7 +131,7 @@ Fixed   Fixed::operator-(const Fixed &obj)
     return (new_value);
 }
 
-Fixed   Fixed::operator*(const Fixed &obj)
+Fixed   Fixed::operator*(const Fixed &obj) const
 {
     Fixed new_value;
 
@@ -139,12 +139,23 @@ Fixed   Fixed::operator*(const Fixed &obj)
     return (new_value);
 }
 
-Fixed   Fixed::operator/(const Fixed &obj)
+Fixed   Fixed::operator/(const Fixed &obj) const
 {
     Fixed new_value;
 
+    if (obj._fixed_point_num_value == 0)
+    {
+        std::cout << "don't divide by 0." << std::endl;
+        return (*this);
+    }
     new_value._fixed_point_num_value = (this->_fixed_point_num_value / obj._fixed_point_num_value) * 256.0;
     return (new_value);
+}
+
+// インクリメント・デクリメント
+Fixed &Fixed::operator++(void)
+{
+    
 }
 
 
