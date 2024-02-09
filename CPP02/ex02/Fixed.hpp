@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 19:29:35 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/07 11:49:51 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/09 10:53:29 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ class Fixed
 		int     getRawBits(void) const;
 		void    setRawBits(int const raw);
 
+		// 比較演算子
 		bool	operator>(const Fixed &obj) const;
 		bool	operator<(const Fixed &obj) const;
 		bool	operator>=(const Fixed &obj) const;
@@ -54,7 +55,7 @@ class Fixed
 		bool	operator==(const Fixed &obj) const;
 		bool	operator!=(const Fixed &obj) const;
 
-		// 四則演算の分
+		// 四則演算子
 		Fixed operator+(const Fixed &obj) const;
 		Fixed operator-(const Fixed &obj) const;
 		Fixed operator*(const Fixed &obj) const;
@@ -62,7 +63,18 @@ class Fixed
 
 		// インクリメント・デクリメント
 		Fixed& operator++(void);
+		Fixed  operator++(int);
+
 		Fixed& operator--(void);
+		Fixed  operator--(int);
+
+		// 代償関係を決めるもの
+		static Fixed& min(Fixed& left, Fixed& right);
+		static const Fixed& min(const Fixed& left, const Fixed& right);
+
+		static Fixed& max(Fixed& left, Fixed& right);
+		static const Fixed& max(const Fixed& left, const Fixed& right);
+
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed);

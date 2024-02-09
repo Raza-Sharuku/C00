@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:10:21 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/07 11:52:28 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/09 10:56:26 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,12 +152,62 @@ Fixed   Fixed::operator/(const Fixed &obj) const
     return (new_value);
 }
 
-// インクリメント・デクリメント
+// 前置・後置インクリメント
 Fixed &Fixed::operator++(void)
 {
-    
+    this->_fixed_point_num_value += 1;
+    return (*this);
 }
 
+Fixed Fixed::operator++(int)
+{
+    Fixed first = *this;
+    ++(*this);
+    return (first);
+}
+
+// 前置・後置デクリメント
+Fixed &Fixed::operator--(void)
+{
+    this->_fixed_point_num_value -= 1;
+    return (*this);
+}
+
+Fixed Fixed::operator--(int)
+{
+    Fixed first = *this;
+    --(*this);
+    return (first);
+}
+
+// 代償関係を決めるもの
+Fixed& Fixed::min(Fixed& left, Fixed& right)
+{
+    if (left < right)
+        return (left);
+    return (right);
+}
+
+const Fixed& Fixed::min(const Fixed& left, const Fixed& right)
+{
+    if (left < right)
+        return (left);
+    return (right);
+}
+
+Fixed& Fixed::max(Fixed& left, Fixed& right)
+{
+    if (left > right)
+        return (left);
+    return (right);
+}
+
+const Fixed& Fixed::max(const Fixed& left, const Fixed& right)
+{
+    if (left > right)
+        return (left);
+    return (right);
+}
 
 
 // メンバ関数以外
