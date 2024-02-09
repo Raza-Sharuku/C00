@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:10:21 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/01/27 19:20:22 by sraza            ###   ########.fr       */
+/*   Updated: 2024/02/09 17:23:34 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ Fixed::Fixed(void)
 Fixed::Fixed(const Fixed &obj) : _fixed_point_num_value(obj._fixed_point_num_value)
 {
     std::cout << "Copy Constructor called" << std::endl;
+    this->_fixed_point_num_value = obj.getRawBits();
     return ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:10:21 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/03 12:25:16 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/09 17:18:16 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Fixed::Fixed(const float f)
 Fixed::Fixed(const Fixed &obj) : _fixed_point_num_value(obj._fixed_point_num_value)
 {
     std::cout << "Copy Constructor called" << std::endl;
-    this->_fixed_point_num_value = getRawBits();
+    this->_fixed_point_num_value = obj.getRawBits();
     return ;
 }
 

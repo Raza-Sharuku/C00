@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:10:21 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/09 10:56:26 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/09 17:23:48 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Fixed::Fixed(const float f)
 // Copy Constructor
 Fixed::Fixed(Fixed const &obj) : _fixed_point_num_value(obj._fixed_point_num_value)
 {
-    this->_fixed_point_num_value = getRawBits();
+    this->_fixed_point_num_value = obj.getRawBits();
     return ;
 }
 
