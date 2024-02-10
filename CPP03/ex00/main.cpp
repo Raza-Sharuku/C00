@@ -3,26 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 19:23:27 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/01/27 16:10:43 by sraza            ###   ########.fr       */
+/*   Updated: 2024/02/10 15:29:41 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Fixed.hpp"
+#include"ClapTrap.hpp"
 
 
 int main(void) 
 {
-    Fixed   a;
-    Fixed   b(a);
-    Fixed   c;
+    ClapTrap pikachu("ピカチュウ");
+    ClapTrap darkry("ダークライ");
 
-    c = b;
+    std::cout << "------------------------------------------------------" << std::endl;
 
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
+    pikachu.attack("ダークライ");
+    darkry.attack("ピカチュウ");
+    pikachu.beRepaired(2);
+    darkry.attack("ピカチュウ");
+
+    std::cout << "------------------------------------------------------" << std::endl;
+    pikachu.attack("ダークライ");
+    darkry.attack("ピカチュウ");
+    std::cout << "------------------------------------------------------" << std::endl;
+
+
     return 0;
 }
