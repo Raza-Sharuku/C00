@@ -6,18 +6,17 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 19:23:27 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/12 13:10:49 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/12 13:25:18 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ClapTrap.hpp"
-#include"ScavTrap.hpp"
-
+#include"FragTrap.hpp"
 
 int main(void) 
 {
     ClapTrap pikachu("ピカチュウ");
-    ScavTrap darkry("ダークライ");
+    FragTrap darkry("ダークライ");
 
     std::cout << "------------------------------------------------------" << std::endl;
 
@@ -31,7 +30,8 @@ int main(void)
 
     std::cout << "------------------------------------------------------" << std::endl;
     pikachu.attack("ダークライ");
-    darkry.guardGate();
+    darkry.highFivesGuys();
+    darkry.takeDamage(0);
     std::cout << "------------------------------------------------------" << std::endl;
     pikachu.attack("ダークライ");
     darkry.takeDamage(0);

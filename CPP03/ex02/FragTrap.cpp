@@ -1,56 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/12 12:06:26 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/12 13:18:14 by razasharuku      ###   ########.fr       */
+/*   Created: 2024/02/12 13:14:04 by razasharuku       #+#    #+#             */
+/*   Updated: 2024/02/12 13:29:27 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-ScavTrap::ScavTrap(void) : ClapTrap()
+FragTrap::FragTrap(void) : ClapTrap()
 {
-    this->_name = "scav_defalut";
+    this->_name = "Frag_defalut";
     this->_hit_point = 100;
     this->_energy_point = 50;
     this->_Attack_damage = 20;
 
-    std::cout << "ScavTrap : Constructor called" << std::endl;
+    std::cout << "FragTrap : Constructor called" << std::endl;
     std::cout << "           " << this->_name << "が現れた。" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
     this->_hit_point = 100;
     this->_energy_point = 50;
     this->_Attack_damage = 20;
 
-    std::cout << "ScavTrap : Constructor called" << std::endl;
+    std::cout << "FragTrap : Constructor called" << std::endl;
     std::cout << "           " << this->_name << "が現れた。" << std::endl;
 }
 
-ScavTrap::~ScavTrap(void)
+FragTrap::~FragTrap(void)
 {
-    std::cout << "ScavTrap : Destructor called" << std::endl;
+    std::cout << "FragTrap : Destructor called" << std::endl;
     std::cout << "           " << this->_name << "は逃げた、、、" << std::endl;
 }
 
 // copy constructor
-ScavTrap::ScavTrap(const ScavTrap &other)
+FragTrap::FragTrap(const FragTrap &other)
 {
     *this = other;
-    std::cout << "ScavTrap : Copy Constructor called" << std::endl;
+    std::cout << "FragTrap : Copy Constructor called" << std::endl;
     return ;
 }
 
 // copy assignment operator overload
-ScavTrap &ScavTrap::operator=(const ScavTrap &other)
+FragTrap &FragTrap::operator=(const FragTrap &other)
 {
-    std::cout << "ScavTrap : Copy assignment operator called" << std::endl;
+    std::cout << "FragTrap : Copy assignment operator called" << std::endl;
     if (this != &other)
     {
         this->_name = other._name;
@@ -61,18 +61,10 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other)
     return *this;
 };
 
-void ScavTrap::attack(const std::string& target)
+void FragTrap::highFivesGuys(void)
 {
-    if (_energy_point <= 0)
-    {
-        std::cout << "ScavTrap :" << this->_name << "はエネルギー切れのようだ、、、" << std::endl;
-        return ;
-    }
-    std::cout << "ScavTrap :" << this->_name << "のナイトメア!! " << target << "に" << _Attack_damage << "のダメージを与えた！！" << std::endl;
-    _energy_point -= 1;
-}
-
-void ScavTrap::guardGate(void)
-{
-    std::cout << "ScavTrap :" << this->_name << "は、まもるを使った。相手の攻撃はきまらなかったようだ。" << std::endl;
+    if (this->_hit_point >= 0)
+        std::cout << "FragTrap :" << this->_name << "は、ハイタッチしてくれた。効果はいまひとつのようだ" << std::endl;
+    else 
+        std::cout << "FragTrap :" << this->_name << "は、ハイタッチができる元気がない。" << std::endl;
 }

@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/12 12:06:29 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/12 13:17:26 by razasharuku      ###   ########.fr       */
+/*   Created: 2024/02/12 13:14:11 by razasharuku       #+#    #+#             */
+/*   Updated: 2024/02/12 13:26:13 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 # include <iostream>
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class FragTrap : public ClapTrap
 {
 	private:
 
 	public:
 		// コンストラクタ
-		ScavTrap(void);
-		ScavTrap(std::string name);
+		FragTrap(void);
+		FragTrap(std::string name);
 		// コピーコンストラクタ
-		ScavTrap(const ScavTrap& other);
+		FragTrap(const FragTrap& other);
 		// コピー代入演算子
-		ScavTrap &operator=(const ScavTrap& other);
+		FragTrap &operator=(const FragTrap& other);
 		// デストラクタ
-		~ScavTrap(void);
+		~FragTrap(void);
 
 		// メンバ関数
-		void			attack(const std::string& target);
-		void			guardGate(void);
+		void			highFivesGuys(void);
 };
 
 
