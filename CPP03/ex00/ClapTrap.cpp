@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 15:49:15 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/10 15:31:19 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/12 12:49:32 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 
 // コンストラクタ
+ClapTrap::ClapTrap(void) : _name("defalut"), _hit_point(10), _energy_point(10), _Attack_damage(0)
+{
+    std::cout << "ClapTrap : Constructor called" << std::endl;
+    std::cout << "Claptrap : " << _name << "が現れた。" << std::endl;
+}
+
 ClapTrap::ClapTrap(std::string name) : _name(name), _hit_point(10), _energy_point(10), _Attack_damage(0)
 {
     std::cout << "ClapTrap : Constructor called" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 19:29:35 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/10 12:22:20 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/12 12:48:35 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ class ClapTrap
 		unsigned int	_energy_point;
 		unsigned int	_Attack_damage;
 
-		ClapTrap(void);
 
 	public:
 		// コンストラクタ
+		ClapTrap(void);
 		ClapTrap(std::string name);
 		// コピーコンストラクタ
 		ClapTrap(const ClapTrap& other);
