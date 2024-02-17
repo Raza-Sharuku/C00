@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 11:11:46 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/17 14:58:20 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/17 20:10:08 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Dog : public Animal
 		// コピー代入演算子
 		Dog &operator=(const Dog& other);
 		// デストラクタ
-		~Dog(void);
+		virtual ~Dog(void);
 
 
 		// メンバ関数

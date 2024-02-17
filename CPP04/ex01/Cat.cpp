@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 10:48:30 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/17 14:47:00 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/17 20:03:50 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Cat::~Cat(void)
     return ;
 }
 
-Cat::Cat(const Cat &other): Animal(other)
+Cat::Cat(const Cat &other) : Animal(other)
 {
     std::cout << "Cat :Copy Constructor called." << std::endl;
     this->brain = new Brain(*(other.brain));
