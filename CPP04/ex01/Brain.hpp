@@ -1,40 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/12 12:06:29 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/16 09:20:40 by razasharuku      ###   ########.fr       */
+/*   Created: 2024/02/16 12:32:54 by razasharuku       #+#    #+#             */
+/*   Updated: 2024/02/17 11:22:28 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
-# include "ClapTrap.hpp"
+# include "Animal.hpp"
 
-class ScavTrap : public ClapTrap
+class Brain
 {
 	private:
+		std::string		*ideas;
 
 	public:
 		// コンストラクタ
-		ScavTrap(void);
-		ScavTrap(std::string name);
+		Brain(void);
 		// コピーコンストラクタ
-		ScavTrap(const ScavTrap& other);
+		Brain(const Brain& other);
 		// コピー代入演算子
-		ScavTrap &operator=(const ScavTrap& other);
+		Brain &operator=(const Brain& other);
 		// デストラクタ
-		~ScavTrap(void);
+		~Brain(void);
 
-		// メンバ関数
-		virtual	void	attack(const std::string& target);
-		void			guardGate(void);
+		std::string 	getidea(unsigned int num) const;
+		void 			setidea(unsigned int num, std::string idea) const;
+
 };
 
 

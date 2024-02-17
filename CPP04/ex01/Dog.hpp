@@ -1,40 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/12 12:06:29 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/16 09:20:40 by razasharuku      ###   ########.fr       */
+/*   Created: 2024/02/16 11:11:46 by razasharuku       #+#    #+#             */
+/*   Updated: 2024/02/17 14:58:20 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
 # include <iostream>
-# include "ClapTrap.hpp"
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-class ScavTrap : public ClapTrap
+class Dog : public Animal
 {
 	private:
+		std::string		m_type;
+		Brain			*brain;
 
 	public:
 		// コンストラクタ
-		ScavTrap(void);
-		ScavTrap(std::string name);
+		Dog(void);
 		// コピーコンストラクタ
-		ScavTrap(const ScavTrap& other);
+		Dog(const Dog& other);
 		// コピー代入演算子
-		ScavTrap &operator=(const ScavTrap& other);
+		Dog &operator=(const Dog& other);
 		// デストラクタ
-		~ScavTrap(void);
+		~Dog(void);
+
 
 		// メンバ関数
-		virtual	void	attack(const std::string& target);
-		void			guardGate(void);
+		void			makeSound(void) const;
+		std::string 	getType(void) const;
+		std::string 	getidea(unsigned int num) const;
+		void 			setidea(unsigned int num, std::string idea) const;
 };
 
 

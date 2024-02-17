@@ -1,40 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/12 12:06:29 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/16 09:20:40 by razasharuku      ###   ########.fr       */
+/*   Created: 2024/02/16 11:08:37 by razasharuku       #+#    #+#             */
+/*   Updated: 2024/02/16 11:10:01 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
 # include <iostream>
-# include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class Animal
 {
-	private:
+	protected:
+		std::string		m_type;
 
 	public:
 		// コンストラクタ
-		ScavTrap(void);
-		ScavTrap(std::string name);
+		Animal(void);
 		// コピーコンストラクタ
-		ScavTrap(const ScavTrap& other);
+		Animal(const Animal& other);
 		// コピー代入演算子
-		ScavTrap &operator=(const ScavTrap& other);
+		Animal &operator=(const Animal& other);
 		// デストラクタ
-		~ScavTrap(void);
+		virtual ~Animal(void);
+
 
 		// メンバ関数
-		virtual	void	attack(const std::string& target);
-		void			guardGate(void);
+		virtual void			makeSound(void) const;
+		virtual std::string 	getType(void) const;
 };
 
 
