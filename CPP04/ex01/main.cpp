@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 09:44:57 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/17 20:12:32 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/18 20:10:50 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,18 +76,13 @@ int main()
     }
 
     {
-        std::cout << "\033[1;31m" << "++++++++++++++++++ TEST 3 _START(Copy assignment check) ++++++++++++++++++++\n" << "\033[0m" << std::endl;
-        Dog basic;
-        {
-            std::cout << "\033[1;31m" << "++++++++++++++++++ TEST 3 _START(Copy assignment check) ++++++++++++++++++++\n" << "\033[0m" << std::endl;
-            Dog tmp = basic;
-            std::cout << "\033[1;31m" << "++++++++++++++++++ TEST 3 _END(Copy assignment check) ++++++++++++++++++++\n" << "\033[0m" << std::endl;
-        }
 
         std::cout << "\033[1;33m" << "++++++++++++++++++ TEST 4 _START(Copy assignment check) ++++++++++++++++++++\n" << "\033[0m" << std::endl;
 
 		Dog dog;
-		Dog copy_Dog = dog;
+		Dog copy_Dog;
+
+        copy_Dog = dog;
 		
 		std::cout << std::endl;
 
