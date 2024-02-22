@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:07:43 by sraza             #+#    #+#             */
-/*   Updated: 2024/02/20 15:49:33 by sraza            ###   ########.fr       */
+/*   Updated: 2024/02/22 19:56:49 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ class Bureaucrat
 
         void    GradeTooHighException(void);
         void    GradeTooLowException(void);
+        // nested class
+        class GradeTooLowException : public std::exception {};
 
         Bureaucrat& operator++(void);
         Bureaucrat& operator--(void);
