@@ -6,7 +6,7 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:25:29 by sraza             #+#    #+#             */
-/*   Updated: 2024/02/20 15:57:41 by sraza            ###   ########.fr       */
+/*   Updated: 2024/02/25 14:27:37 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(void)
         my_bureaucrat.GradeTooHighException();
         std::cout << "My garde is -> " << my_bureaucrat.getGrade() << std::endl;
     }
-    catch (std::exception& e)
+    catch (std::exception &e)
     {
         std::cout << "first exception : " << e.what()  << std::endl;
     }

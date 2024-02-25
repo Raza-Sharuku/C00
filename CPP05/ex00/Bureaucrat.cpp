@@ -6,23 +6,26 @@
 /*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:24:52 by sraza             #+#    #+#             */
-/*   Updated: 2024/02/20 15:55:04 by sraza            ###   ########.fr       */
+/*   Updated: 2024/02/25 14:28:42 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(void)
+Bureaucrat::Bureaucrat(void) : m_name("default"), m_grade(1)
 {
     std::cout << "Bureaucrat: Default constructor called." << std::endl;
-    // this->m_name = "default";
-    this->m_grade = 1;
     return ;
 }
 
 Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : m_name(name), m_grade(grade)
 {
     std::cout << "Bureaucrat: Default constructor called." << std::endl;
+
+    if (grade < 1)
+        throw (std::exception());
+    if (grade > 150)
+        throw (std::exception());
     return ;
 }
 
