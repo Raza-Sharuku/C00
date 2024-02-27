@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:25:29 by sraza             #+#    #+#             */
-/*   Updated: 2024/02/27 19:25:26 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/27 19:29:33 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,9 @@ int main(void)
     }
    
     std::cout << "\033[1;33m" << "++++++++++++++++++ END ++++++++++++++++++++\n" << "\033[0m" << std::endl;
+}
 
-
-    
-    
+__attribute__((destructor))
+static void destructor() {
+    system("leaks -q ex");
 }
