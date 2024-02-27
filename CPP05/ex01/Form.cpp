@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:33:29 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/27 14:19:54 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/27 15:24:34 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ Form::~Form(void)
     return ;
 }
 
-const std::string Form::getName(void)
+const std::string Form::getName(void) const
 {
     return (this->m_name);
 }
 
-bool Form::get_sign(void)
+bool Form::get_sign(void) const
 {
     return (this->m_singed);
 }

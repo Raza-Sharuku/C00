@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:07:43 by sraza             #+#    #+#             */
-/*   Updated: 2024/02/27 13:25:13 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/27 17:17:06 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef _A_FORM_HPP
+# define _A_FORM_HPP
 
-#include <iostream>
-#include <exception>
-#include "Bureaucrat.hpp"
+# include <iostream>
+# include <exception>
+# include "Bureaucrat.hpp"
+
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
     private:
         const std::string   m_name;
@@ -28,20 +29,23 @@ class Form
         bool                m_singed;
     public:
         // コンストラクタ
-        Form(std::string name, unsigned int sign_grade, unsigned int exec_grade);
+        AForm(std::string name, unsigned int sign_grade, unsigned int exec_grade);
         // コピーコンストラクタ
-        Form(const Form& other);
+        AForm(const AForm& other);
         // コピー代入演算子
-        Form &operator=(const Form& other);
+        AForm &operator=(const AForm& other);
         // デストラクタ
-        ~Form(void);
+        virtual ~AForm(void);
 
         // メンバ変数
-        const std::string       getName(void);
-        bool                    get_sign(void);
+        const std::string       getName(void) const;
+        bool                    get_sign(void) const;
         const unsigned int&     get_sign_Grade(void) const;
         const unsigned int&     get_exec_Grade(void) const;
         void                    beSigned(const Bureaucrat& bureaucrat);
+
+        // 純粋仮想関数（抽象クラスにするために）
+        virtual void            execute(Bureaucrat const & executor) const = 0;
 
         // nested class
         class   GradeTooHighException : public std::exception
@@ -54,9 +58,8 @@ class Form
             public :
                 virtual const char *what() const throw();
         };
-        
 };
 
-std::ostream	&operator<<(std::ostream &o, Form &a);
+std::ostream	&operator<<(std::ostream &o, AForm &a);
 
 #endif
