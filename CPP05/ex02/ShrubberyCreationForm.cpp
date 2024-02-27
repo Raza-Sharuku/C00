@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 14:36:46 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/27 17:22:58 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/27 19:18:26 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
     if (this->get_sign() == false)
-        std::cout << "not signed" << std::endl;
+        throw AForm::UnSignedException();
     else if (executor.getGrade() > this->get_exec_Grade())
         throw AForm::GradeTooLowException();
     std::ofstream file(this->m_target + "_shrubbery");
@@ -57,4 +57,5 @@ void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
     file << "wwwwwwwwwwwwwwww " << std::endl;
     file.close();
     std::cout << this->m_target + "_shrubbery" << " File is ready!" << std::endl;
+    return ;
 }

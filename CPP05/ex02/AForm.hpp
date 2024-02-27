@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:07:43 by sraza             #+#    #+#             */
-/*   Updated: 2024/02/27 17:17:06 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/27 19:04:23 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,11 @@ class AForm
                 virtual const char *what() const throw();
         };
         class   GradeTooLowException : public std::exception
+        {
+            public :
+                virtual const char *what() const throw();
+        };
+        class   UnSignedException : public std::exception
         {
             public :
                 virtual const char *what() const throw();

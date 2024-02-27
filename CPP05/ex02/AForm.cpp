@@ -91,6 +91,11 @@ const char *AForm::GradeTooLowException::what(void) const throw()
     return ("AForm: GradeTooLowException called");
 }
 
+const char *AForm::UnSignedException::what(void) const throw()
+{
+    return ("AForm: UnSignedException called");
+}
+
 std::ostream	&operator<<(std::ostream &o, AForm &a)
 {
     o << "---------------- " << a.getName() << " ---------------" << "\n"\
