@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:24:52 by sraza             #+#    #+#             */
-/*   Updated: 2024/02/26 17:25:49 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/27 13:34:26 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,19 @@ void    Bureaucrat::decrease_grade(unsigned int grade)
 {
     this->setGrade(m_grade + grade);
     return ;
+}
+
+void    Bureaucrat::signForm(Form& form)
+{
+    try
+    {
+        form.beSigned(*this);
+        std::cout << this->getName() << " signed " << form.getName() << std::endl;
+    }
+    catch(Form::GradeTooLowException &e)
+    {
+        std::cout << this->getName() << " couldn't signed " << form.getName() << "Because " << e.what() << std::endl;
+    }
 }
 
 

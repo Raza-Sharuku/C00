@@ -1,43 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:07:43 by sraza             #+#    #+#             */
-/*   Updated: 2024/02/26 17:25:32 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/27 13:25:13 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+# define FORM_HPP
 
 #include <iostream>
 #include <exception>
+#include "Bureaucrat.hpp"
 
-class Bureaucrat
+class Bureaucrat;
+
+class Form
 {
     private:
-        std::string const   m_name;
-        unsigned int        m_grade;
+        const std::string   m_name;
+        const unsigned int  m_sign_grade;
+        const unsigned int  m_exec_grade;
+        bool                m_singed;
     public:
         // コンストラクタ
-        Bureaucrat(void);
-        Bureaucrat(std::string name, unsigned int grade);
+        Form(std::string name, unsigned int sign_grade, unsigned int exec_grade);
         // コピーコンストラクタ
-        Bureaucrat(const Bureaucrat& other);
+        Form(const Form& other);
         // コピー代入演算子
-        Bureaucrat &operator=(const Bureaucrat& other);
+        Form &operator=(const Form& other);
         // デストラクタ
-        ~Bureaucrat(void);
+        ~Form(void);
 
         // メンバ変数
-        std::string     getName(void);
-        const unsigned int&    getGrade(void) const;
-        void            setGrade(unsigned int grade);
-        void            increase_grade(unsigned int grade);
-        void            decrease_grade(unsigned int grade);
+        const std::string       getName(void);
+        bool                    get_sign(void);
+        const unsigned int&     get_sign_Grade(void) const;
+        const unsigned int&     get_exec_Grade(void) const;
+        void                    beSigned(const Bureaucrat& bureaucrat);
 
         // nested class
         class   GradeTooHighException : public std::exception
@@ -51,9 +55,8 @@ class Bureaucrat
                 virtual const char *what() const throw();
         };
         
-        
 };
 
-std::ostream	&operator<<(std::ostream &o, Bureaucrat &a);
+std::ostream	&operator<<(std::ostream &o, Form &a);
 
 #endif

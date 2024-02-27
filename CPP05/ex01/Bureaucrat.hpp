@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:07:43 by sraza             #+#    #+#             */
-/*   Updated: 2024/02/26 17:25:32 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/27 13:28:51 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <iostream>
 #include <exception>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -33,11 +36,12 @@ class Bureaucrat
         ~Bureaucrat(void);
 
         // メンバ変数
-        std::string     getName(void);
-        const unsigned int&    getGrade(void) const;
-        void            setGrade(unsigned int grade);
-        void            increase_grade(unsigned int grade);
-        void            decrease_grade(unsigned int grade);
+        std::string             getName(void);
+        const unsigned int&     getGrade(void) const;
+        void                    setGrade(unsigned int grade);
+        void                    increase_grade(unsigned int grade);
+        void                    decrease_grade(unsigned int grade);
+        void                    signForm(Form& form);
 
         // nested class
         class   GradeTooHighException : public std::exception
