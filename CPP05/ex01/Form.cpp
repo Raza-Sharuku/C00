@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:33:29 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/27 13:50:25 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/27 14:19:54 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,8 @@ const unsigned int& Form::get_exec_Grade(void) const
 
 void Form::beSigned(const Bureaucrat& bureaucrat)
 {
-    if (this->m_singed)
-        return ;
     if (bureaucrat.getGrade() > this->get_sign_Grade())
-        throw GradeTooLowException();
+        throw Form::GradeTooLowException();
     else
         this->m_singed = true;
 }
