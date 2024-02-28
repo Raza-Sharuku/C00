@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:25:29 by sraza             #+#    #+#             */
-/*   Updated: 2024/02/27 19:29:33 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/28 11:38:19 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(void)
     {
         // それぞれ使うBureaucratのサイングレードとかを変化させてエラーをCatchさせる
         Bureaucrat raza("raza",33);
-        Bureaucrat Tom("Tom",150);
+        Bureaucrat Tom("Tom",3);
         Bureaucrat Harry("Harry",1);
         ShrubberyCreationForm form("raza");
         RobotomyRequestForm form1("robot");
@@ -47,7 +47,8 @@ int main(void)
 
         std::cout << "\033[1;34m" << "+++++++++++++ TEST 3 _START ++++++++++\n" << "\033[0m" << std::endl;
         Tom.signForm(form2);
-        form2.execute(Tom);
+        Tom.executeForm(form2);
+        // form2.execute(Tom);
 
         std::cout << "\n \033[1;34m" << "+++++++++++++ TEST 3 _END ++++++++++\n" << "\033[0m" << std::endl;
 

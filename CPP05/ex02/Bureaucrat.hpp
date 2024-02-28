@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:07:43 by sraza             #+#    #+#             */
-/*   Updated: 2024/02/27 17:15:27 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/28 11:35:40 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ class Bureaucrat
         void                    increase_grade(unsigned int grade);
         void                    decrease_grade(unsigned int grade);
         void                    signForm(AForm& form);
+        void                    executeForm(AForm const & form);
 
         // nested class
         class   GradeTooHighException : public std::exception
