@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:07:43 by sraza             #+#    #+#             */
-/*   Updated: 2024/02/28 11:35:40 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/28 11:49:22 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <iostream>
 # include <exception>
 # include "AForm.hpp"
-
 
 class AForm;
 
@@ -56,8 +55,6 @@ class Bureaucrat
             public :
                 virtual const char *what() const throw();
         };
-        
-        
 };
 
 std::ostream	&operator<<(std::ostream &o, Bureaucrat &a);
