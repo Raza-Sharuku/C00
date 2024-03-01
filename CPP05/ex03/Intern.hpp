@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:07:43 by sraza             #+#    #+#             */
-/*   Updated: 2024/02/28 13:17:01 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/02/29 17:37:21 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 # include <iostream>
 # include <exception>
+# include <string>
 # include "AForm.hpp"
 
-AForm;
+// AForm;
 
 class Intern
 {
@@ -32,7 +33,7 @@ class Intern
         ~Intern(void);
 
         // メンバ変数
-        AForm   *makeForm(const std::string form_name, const std::string form_target);
+        AForm   *makeForm(const std::string name_of_form, const std::string target_of_form);
 
 };
 

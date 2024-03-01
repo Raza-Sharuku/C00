@@ -6,11 +6,14 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 13:16:23 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/28 13:24:53 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/01 09:16:25 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 Intern::Intern(void)
 {
@@ -39,7 +42,31 @@ Intern::~Intern(void)
     return ;
 }
 
-AForm   *Intern::makeForm(const std::string form_name, const std::string form_target)
+AForm   *Intern::makeForm(const std::string name_of_form, const std::string target_of_form)
 {
-    
+    std::string form_names[] = {"ShrubberyCreationForm","RobotomyRequestForm", "PresidentialPardonForm"};
+    int i = 0;
+    while (i < 3 && name_of_form != form_names[i])
+        i++;
+	switch (i)
+	{
+	case 0:
+    {
+		std::cout << "Intern creates " << name_of_form << std::endl;
+		return (new ShrubberyCreationForm(target_of_form));
+    }
+	case 1:
+    {
+		std::cout << "Intern creates " << name_of_form << std::endl;
+		return (new RobotomyRequestForm(target_of_form));
+    }
+	case 2:
+    {
+		std::cout << "Intern creates " << name_of_form << std::endl;
+		return (new PresidentialPardonForm(target_of_form));
+    }
+	default:
+		std::cout << "Intern couldn't create Form." << std::endl;
+		return (nullptr);
+	}
 }
