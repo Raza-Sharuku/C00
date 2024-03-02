@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 14:35:58 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/27 19:22:39 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/02 09:53:19 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,29 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 
 void    RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-    if (this->get_sign() == false)
-        throw AForm::UnSignedException();
-    else if (executor.getGrade() > this->get_exec_Grade())
-        throw AForm::GradeTooLowException();
-    else 
+    try
     {
-        static int i;
-        if (i % 2 == 0)
-            std::cout << "ウィーーーーンガシャ" << this->m_target << "はロボット化しました。" << std::endl;
-        else 
-            std::cout << "ピピー！失敗しました。" << this->m_target << "はまだロボット化していません。" << std::endl;
-        i++;
+        if (this->get_sign() == false)
+            throw AForm::UnSignedException();
+        else if (executor.getGrade() > this->get_exec_Grade())
+            throw AForm::GradeTooLowException();
+        else
+        {
+            static int i;
+            if (i % 2 == 0)
+                std::cout << "ウィーーーーンガシャ" << executor.getName() << "はロボット化しました。" << std::endl;
+            else 
+                std::cout << "ピピー！失敗しました。" << executor.getName() << "はまだロボット化していません。" << std::endl;
+            i++;
+        }
+    }
+    catch(const AForm::UnSignedException &e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    catch(const AForm::GradeTooLowException &e)
+    {
+        std::cerr << e.what() << '\n';
     }
     return ;
 }

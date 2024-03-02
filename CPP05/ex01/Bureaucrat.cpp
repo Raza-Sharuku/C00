@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:24:52 by sraza             #+#    #+#             */
-/*   Updated: 2024/02/27 14:22:59 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/01 10:16:21 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ Bureaucrat::~Bureaucrat(void)
 }
 
 // member function
-std::string Bureaucrat::getName(void)
+const std::string& Bureaucrat::getName(void) const
 {
     return (this->m_name);
 }

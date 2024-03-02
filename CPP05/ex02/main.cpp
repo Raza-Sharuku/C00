@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:25:29 by sraza             #+#    #+#             */
-/*   Updated: 2024/02/29 16:42:08 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/02 10:00:45 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ int main(void)
 	try
     {
         // それぞれ使うBureaucratのサイングレードとかを変化させてエラーをCatchさせる
-        Bureaucrat              raza("raza",33);
-        Bureaucrat              Tom("Tom",3);
-        Bureaucrat              Harry("Harry",1);
-        ShrubberyCreationForm   form("raza");
-        RobotomyRequestForm     form1("robot");
-        PresidentialPardonForm  form2("Sirius Black");
+        Bureaucrat              raza("raza",150);
+        ShrubberyCreationForm   form("creating_form");
+        Bureaucrat              Harry("Harry",140);
+        RobotomyRequestForm     form1("robotomize_form");
+        Bureaucrat              Sirius("Sirius Black",140);
+        PresidentialPardonForm  form2("pardon");
     
         std::cout << "\n" << raza;
-        std::cout << Tom;
+        std::cout << Sirius;
         std::cout << Harry;
 
         std::cout << "\033[1;35m" << "+++++++++++++ TEST 1 _START ++++++++++\n" << "\033[0m" << std::endl;
@@ -46,14 +46,26 @@ int main(void)
         std::cout << "\n \033[1;36m" << "+++++++++++++ TEST 2 _END ++++++++++\n" << "\033[0m" << std::endl;
 
         std::cout << "\033[1;34m" << "+++++++++++++ TEST 3 _START ++++++++++\n" << "\033[0m" << std::endl;
-        Tom.signForm(form2);
-        Tom.executeForm(form2);
-        // form2.execute(Tom);
+        Sirius.signForm(form2);
+        Sirius.executeForm(form2);
+        form2.execute(Sirius);
 
         std::cout << "\n \033[1;34m" << "+++++++++++++ TEST 3 _END ++++++++++\n" << "\033[0m" << std::endl;
 
 
 	}
+    catch(AForm::GradeTooHighException& e)
+    {
+		std::cout << e.what() << std::endl;
+    }
+    catch(AForm::GradeTooLowException& e)
+    {
+		std::cout << e.what() << std::endl;
+    }
+    catch(AForm::UnSignedException& e)
+    {
+		std::cout << e.what() << std::endl;
+    }
     catch(std::exception& e)
     {
 		std::cout << e.what() << std::endl;

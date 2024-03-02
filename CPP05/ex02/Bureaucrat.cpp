@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:24:52 by sraza             #+#    #+#             */
-/*   Updated: 2024/02/28 11:37:10 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/01 11:26:34 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ Bureaucrat::~Bureaucrat(void)
 }
 
 // member function
-std::string Bureaucrat::getName(void)
+const std::string& Bureaucrat::getName(void) const
 {
     return (this->m_name);
 }
@@ -109,9 +109,10 @@ void    Bureaucrat::signForm(AForm& form)
         form.beSigned(*this);
         std::cout << this->getName() << " signed " << form.getName() << std::endl;
     }
-    catch(AForm::GradeTooLowException &e)
+    catch(std::exception &e)
     {
         std::cout << this->getName() << " couldn't signed " << form.getName() << ". Because " << e.what() << std::endl;
+        return ;
     }
 }
 
@@ -122,7 +123,7 @@ void    Bureaucrat::executeForm(AForm const & form)
         form.execute(*this);
         std::cout << this->getName() << " execute " << form.getName() << std::endl;
     }
-    catch(AForm::GradeTooLowException &e)
+    catch(std::exception &e)
     {
         std::cout << this->getName() << " couldn't execute " << form.getName() << ". Because " << e.what() << std::endl;
     }

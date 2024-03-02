@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 14:35:55 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/27 19:23:20 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/02 09:59:01 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,18 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 
 void    PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-    if (this->get_sign() == false)
-        throw AForm::UnSignedException();
-    else if (executor.getGrade() > this->get_exec_Grade())
-        throw AForm::GradeTooLowException();
-    else 
+    try
     {
-        std::cout << this->m_target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+        if (this->get_sign() == false)
+            throw AForm::UnSignedException();
+        else if (executor.getGrade() > this->get_exec_Grade())
+            throw AForm::GradeTooLowException();
+        else 
+            std::cout << executor.getName() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
     }
     return ;
 }
