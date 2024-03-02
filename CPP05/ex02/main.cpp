@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:25:29 by sraza             #+#    #+#             */
-/*   Updated: 2024/03/02 10:00:45 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/02 10:12:38 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int main(void)
 	try
     {
         // それぞれ使うBureaucratのサイングレードとかを変化させてエラーをCatchさせる
-        Bureaucrat              raza("raza",150);
+        Bureaucrat              raza("raza",1);
         ShrubberyCreationForm   form("creating_form");
-        Bureaucrat              Harry("Harry",140);
+        Bureaucrat              Harry("Harry",1);
         RobotomyRequestForm     form1("robotomize_form");
-        Bureaucrat              Sirius("Sirius Black",140);
+        Bureaucrat              Sirius("Sirius Black",1);
         PresidentialPardonForm  form2("pardon");
     
         std::cout << "\n" << raza;
@@ -54,24 +54,23 @@ int main(void)
 
 
 	}
-    catch(AForm::GradeTooHighException& e)
-    {
+	catch(AForm::GradeTooHighException& e)
+	{
 		std::cout << e.what() << std::endl;
-    }
-    catch(AForm::GradeTooLowException& e)
-    {
+	}
+	catch(AForm::GradeTooLowException& e)
+	{
 		std::cout << e.what() << std::endl;
-    }
-    catch(AForm::UnSignedException& e)
-    {
+	}
+	catch(AForm::UnSignedException& e)
+	{
 		std::cout << e.what() << std::endl;
-    }
-    catch(std::exception& e)
-    {
+	}
+	catch(std::exception& e)
+	{
 		std::cout << e.what() << std::endl;
-    }
-   
-    std::cout << "\033[1;33m" << "++++++++++++++++++ END ++++++++++++++++++++\n" << "\033[0m" << std::endl;
+	}
+	std::cout << "\033[1;33m" << "++++++++++++++++++ END ++++++++++++++++++++\n" << "\033[0m" << std::endl;
 }
 
 __attribute__((destructor))
