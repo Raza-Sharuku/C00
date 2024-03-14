@@ -73,6 +73,7 @@
         "thread": "cpp",
         "functional": "cpp",
         "memory_resource": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "format": "cpp"
     }
 }

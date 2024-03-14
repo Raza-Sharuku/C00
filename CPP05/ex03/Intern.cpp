@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 13:16:23 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/03/01 09:16:25 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/13 16:52:15 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,6 @@ AForm   *Intern::makeForm(const std::string name_of_form, const std::string targ
     }
 	default:
 		std::cout << "Intern couldn't create Form." << std::endl;
-		return (nullptr);
+		return (NULL);
 	}
 }
