@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 11:24:39 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/03/09 14:01:44 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/14 17:59:51 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(int argc, char **argv)
         return (0);
     }
     if (argv[1])
-        std::cout << argv[1] << std::endl;
+        ScalarConverter::convert(argv[1]);
     return (0);
 
 };
