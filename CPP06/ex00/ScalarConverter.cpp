@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 13:36:06 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/03/09 14:56:59 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/12 13:17:11 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,7 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter& other)
     return (*this);
 }
 
+void    ScalarConverter::convert(std::string str)
+{
+    
+}

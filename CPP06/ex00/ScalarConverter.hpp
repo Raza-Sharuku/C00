@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 13:36:02 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/03/09 14:57:09 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/12 13:58:20 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCALAR_CONVERTER_HPP
 # define SCALAR_CONVERTER_HPP
 
-#include <iostream>
-#include <string.h>
-#include <exception>
+# include <iostream>
+# include <string.h>
+# include <float.h>
 
 
 typedef enum type
@@ -46,9 +46,11 @@ class ScalarConverter
         virtual ~ScalarConverter(void);
 
         // メンバ変数
-        static void            convert(std::string str);
+        void                    convert(std::string str);
+        void                    print_convert_value(void);
 };
 
-
+int check_infinity(std::string str);
+int find_type(std::string str);
 
 #endif
