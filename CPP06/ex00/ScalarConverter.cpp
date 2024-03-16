@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 13:36:06 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/03/14 18:05:04 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/16 14:37:20 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static bool is_char(const std::string &str)
 {
     if (str.length() != 1)
         return (false);
-    if (isdigit(str.at(0)) ||  str.at(0) < -127 || str.at(0) > -128)
+    if (isdigit(str.at(0)) ||  str.at(0) < -127 || str.at(0) > 127)
         return (false);
     return (true);
 }
@@ -76,16 +76,17 @@ static bool is_float(const std::string &str)
 
     if (str[str.length() - 1] != 'f')
         return (false);
-    while (i < str.length() - 1)
+    while (i <= str.length() - 2)
     {
         if (str[i] == '.' && find_dot == true)
             return (false);
-        if (find_dot == false && str[i] == '.')
+        else if (str[i] == '.')
         {
             find_dot = true;
+            i++;
             continue;
         }
-        if (!isdigit(str[i]))
+        else if (!isdigit(str[i]))
             return (false);
         i++;
     }
@@ -101,12 +102,13 @@ static bool is_double(const std::string &str)
     {
         if (str[i] == '.' && find_dot == true)
             return (false);
-        if (find_dot == false && str[i] == '.')
+        else if (str[i] == '.')
         {
             find_dot = true;
+            i++;
             continue;
         }
-        if (!isdigit(str[i]))
+        else if (!isdigit(str[i]))
             return (false);
         i++;
     }
@@ -128,12 +130,12 @@ static char_type getType(const std::string &str)
 
 static void print_char_ver(std::string str)
 {
-    std::cout << "char: " << str[0] << std::endl;
+    std::cout << "char: " << (str).c_str() << std::endl;
     std::cout << "int: " << static_cast<int>(str[0]) << std::endl;
     std::cout << "float: ";
-    std::cout << std::fixed << std::setw(1) << static_cast<float>(str[0]) << std::endl;
+    std::cout << std::fixed << static_cast<float>(str[0]) << std::endl;
     std::cout << "double: ";
-    std::cout << std::fixed << std::setw(1) << static_cast<double>(str[0]) << std::endl;
+    std::cout << std::fixed << static_cast<double>(str[0]) << std::endl;
     return ;
 }
 
@@ -148,9 +150,9 @@ static void print_int_ver(std::string str)
         std::cout << "char: " << static_cast<char>(num) << std::endl;
     std::cout << "int: " << (num) << std::endl;
     std::cout << "float: ";
-    std::cout << std::fixed << std::setw(2) << static_cast<float>(num) << "f" << std::endl;
+    std::cout << std::fixed << static_cast<float>(num) << "f" << std::endl;
     std::cout << "double: ";
-    std::cout << std::fixed << std::setw(2) << static_cast<double>(num) << std::endl;
+    std::cout << std::fixed << static_cast<double>(num) << std::endl;
     return ;
 }
 
@@ -166,9 +168,9 @@ static void print_float_ver(std::string str)
         std::cout << "char: " << static_cast<char>(f_num) << std::endl;
     std::cout << "int: " << static_cast<int>(f_num) << std::endl;
     std::cout << "float: ";
-    std::cout << std::fixed << std::setw(2) << f_num << "f" << std::endl;
+    std::cout << std::fixed << f_num << "f" << std::endl;
     std::cout << "double: ";
-    std::cout << std::fixed << std::setw(2) << static_cast<double>(f_num) << std::endl;
+    std::cout << std::fixed << static_cast<double>(f_num) << std::endl;
     return ;
 }
 
@@ -184,9 +186,9 @@ static void print_double_ver(std::string str)
         std::cout << "char: " << static_cast<char>(d_num) << std::endl;
     std::cout << "int: " << static_cast<int>(d_num) << std::endl;
     std::cout << "float: ";
-    std::cout << std::fixed << std::setw(1) << static_cast<float>(d_num) << "f" << std::endl;
+    std::cout << std::fixed << static_cast<float>(d_num) << "f" << std::endl;
     std::cout << "double: ";
-    std::cout << std::fixed << std::setw(1) << (d_num) << std::endl;  
+    std::cout << std::fixed << (d_num) << std::endl;  
     return ;
 }
 
@@ -196,19 +198,19 @@ static void print_infinity(std::string str)
     if (str == "nan" || str == "nanf")
     {
         std::cout << "int: 0" << std::endl;
-        std::cout << "float: 0" << std::endl;
-        std::cout << "double: 0" << std::endl;
+        std::cout << "float: 0.0f" << std::endl;
+        std::cout << "double: 0.0" << std::endl;
     }
     else if(str == "-inff" || str == "-inf")
     {
         std::cout << "int: " << INT_MIN << std::endl;
-        std::cout << "float: " << __FLT_MIN__ << std::endl;
+        std::cout << "float: " << __FLT_MIN__ << "f" << std::endl;
         std::cout << "double: " << __DBL_MIN__ << std::endl;
     }
     else if (str == "+inf" || str == "+inff")
     {
         std::cout << "int: " << INT_MAX << std::endl;
-        std::cout << "float: " << __FLT_MAX__ << std::endl;
+        std::cout << "float: " << __FLT_MAX__ << "f" << std::endl;
         std::cout << "double: " << __DBL_MAX__ << std::endl;
     }
     return ;
@@ -242,6 +244,9 @@ void ScalarConverter::convert(std::string str)
         break;
     case DOUBLE:
         print_double_ver(str);
+        break;
+    case INVALID:
+        std::cout << "the type conversion is impossible" << std::endl;
         break;
     default:
         std::cout << "the type conversion is impossible" << std::endl;

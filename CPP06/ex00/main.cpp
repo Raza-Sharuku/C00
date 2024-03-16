@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 11:24:39 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/03/14 17:59:51 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/16 14:32:10 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ int main(int argc, char **argv)
 {
     if (argc != 2)
     {
-        std::cout << "Wrong arguments number. [./convert [something you want to convert]]" << std::endl;
+        std::cout << "\nWrong arguments number. [./convert [something you want to convert]]\n" << std::endl;
         return (0);
     }
     if (argv[1])
         ScalarConverter::convert(argv[1]);
+    std::cout << std::endl;
     return (0);
 
 };
