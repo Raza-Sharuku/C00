@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 13:36:06 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/03/16 14:37:20 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/19 10:53:07 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ static bool is_double(const std::string &str)
     unsigned long i = 0;
     bool find_dot = false;
 
-    while (i < (str.length() - 1))
+    while (i < (str.length()))
     {
         if (str[i] == '.' && find_dot == true)
             return (false);
@@ -133,7 +133,7 @@ static void print_char_ver(std::string str)
     std::cout << "char: " << (str).c_str() << std::endl;
     std::cout << "int: " << static_cast<int>(str[0]) << std::endl;
     std::cout << "float: ";
-    std::cout << std::fixed << static_cast<float>(str[0]) << std::endl;
+    std::cout << std::fixed << static_cast<float>(str[0]) << "f"  << std::endl;
     std::cout << "double: ";
     std::cout << std::fixed << static_cast<double>(str[0]) << std::endl;
     return ;
@@ -176,7 +176,7 @@ static void print_float_ver(std::string str)
 
 static void print_double_ver(std::string str)
 {
-    float d_num = atof(str.c_str());
+    double d_num = strtod(str.c_str(), NULL);
 
     if (d_num < 0 || d_num >= 128)
         std::cout << "char: impossible" << std::endl;
@@ -228,6 +228,7 @@ void ScalarConverter::convert(std::string str)
     std::cout << "\033[1;33m" << "++++++++++++++++++ 2 ++++++++++++++++++++\n" << "\033[0m" << std::endl;
 
     type = getType(str);
+    std::cout <<  "The type of this input is : " << type << " (INVALID = -1, CHAR = 1, INT = 2, FLOAT = 3, DOUBLE = 4)" << std::endl;
 
     std::cout << "\033[1;33m" << "++++++++++++++++++ 3 ++++++++++++++++++++\n" << "\033[0m" << std::endl;
 

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/02 11:24:39 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/03/17 14:32:17 by razasharuku      ###   ########.fr       */
+/*   Created: 2024/03/19 10:10:20 by razasharuku       #+#    #+#             */
+/*   Updated: 2024/03/19 10:21:06 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef DATA_HPP
+# define DATA_HPP
 
-int main(int argc, char **argv)
+#include <iostream>
+
+typedef struct Data
 {
-    if (argc != 2)
-    {
-        std::cout << "\nWrong arguments number. [./convert [something you want to convert]]\n" << std::endl;
-        return (0);
-    }
-    if (argv[1])
-        ScalarConverter::convert(argv[1]);
-    std::cout << std::endl;
-    return (0);
+    int             num;
+    std::string     str;
+}          Data;
 
-};
+
+
+
+#endif

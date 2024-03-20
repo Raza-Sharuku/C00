@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/09 13:36:02 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/03/19 10:07:18 by razasharuku      ###   ########.fr       */
+/*   Created: 2024/03/19 10:02:27 by razasharuku       #+#    #+#             */
+/*   Updated: 2024/03/19 10:12:30 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALAR_CONVERTER_HPP
-# define SCALAR_CONVERTER_HPP
+#ifndef SERIALIZER_HPP
+# define SERIALIZER_HPP
 
 #include <iostream>
 #include <string.h>
 #include <exception>
-#include <iomanip>
+#include "Data.hpp"
 
-class ScalarConverter
+class Serializer
 {
     private:
         // コンストラクタ
-        ScalarConverter();
+        Serializer();
         // コピーコンストラクタ
-        ScalarConverter(const ScalarConverter& other);
+        Serializer(const Serializer& other);
     public:
         // コピー代入演算子
-        ScalarConverter &operator=(const ScalarConverter& other);
+        Serializer &operator=(const Serializer& other);
         // デストラクタ
-        ~ScalarConverter(void);
+        ~Serializer(void);
         // メンバ変数
-        static void         convert(std::string str);
+        static uintptr_t        serialize(Data* ptr);
+        static Data*            deserialize(uintptr_t raw);
 };
 
 
