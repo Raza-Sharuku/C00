@@ -13,7 +13,7 @@ $(NAME):	${OBJS}
 
 .cpp.o:
 	${CXX} ${CXXFLAGS} -c $< -o ${<:.cpp=.o}
-
+ 
 clean:
 	rm -rf ${OBJS}
 fclean: clean
