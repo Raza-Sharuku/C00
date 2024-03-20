@@ -74,6 +74,7 @@
         "functional": "cpp",
         "memory_resource": "cpp",
         "random": "cpp",
-        "format": "cpp"
+        "format": "cpp",
+        "__functional_base": "cpp"
     }
 }

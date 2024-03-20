@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   C.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/19 10:10:20 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/03/19 10:21:06 by razasharuku      ###   ########.fr       */
+/*   Created: 2024/03/20 17:23:02 by sraza             #+#    #+#             */
+/*   Updated: 2024/03/20 17:23:15 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_HPP
-# define DATA_HPP
+#ifndef C_HPP
+# define C_HPP
 
-#include <iostream>
+#include "Base.hpp"
 
-typedef struct Data
+class C : public Base
 {
-    int             num;
-    std::string     str;
-}          Data;
-
+};
 
 
 
