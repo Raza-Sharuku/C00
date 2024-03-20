@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
+/*   By: sraza <sraza@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 13:36:06 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/03/20 16:12:51 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/20 16:55:34 by sraza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,9 +133,9 @@ static void print_char_ver(std::string str)
     std::cout << "char: " << (str).c_str() << std::endl;
     std::cout << "int: " << static_cast<int>(str[0]) << std::endl;
     std::cout << "float: ";
-    std::cout << std::fixed << static_cast<float>(str[0]) << "f"  << std::endl;
+    std::cout << std::fixed << std::setprecision(1) << static_cast<float>(str[0]) << "f"  << std::endl;
     std::cout << "double: ";
-    std::cout << std::fixed << static_cast<double>(str[0]) << std::endl;
+    std::cout << std::fixed << std::setprecision(1) << static_cast<double>(str[0]) << std::endl;
     return ;
 }
 
@@ -150,9 +150,9 @@ static void print_int_ver(std::string str)
         std::cout << "char: " << static_cast<char>(num) << std::endl;
     std::cout << "int: " << (num) << std::endl;
     std::cout << "float: ";
-    std::cout << std::fixed << static_cast<float>(num) << "f" << std::endl;
+    std::cout << std::fixed << std::setprecision(1) << static_cast<float>(num) << "f" << std::endl;
     std::cout << "double: ";
-    std::cout << std::fixed << static_cast<double>(num) << std::endl;
+    std::cout << std::fixed << std::setprecision(1) << static_cast<double>(num) << std::endl;
     return ;
 }
 
@@ -168,9 +168,9 @@ static void print_float_ver(std::string str)
         std::cout << "char: " << static_cast<char>(f_num) << std::endl;
     std::cout << "int: " << static_cast<int>(f_num) << std::endl;
     std::cout << "float: ";
-    std::cout << std::fixed << f_num << "f" << std::endl;
+    std::cout << std::fixed << std::setprecision(1) << f_num << "f" << std::endl;
     std::cout << "double: ";
-    std::cout << std::fixed << static_cast<double>(f_num) << std::endl;
+    std::cout << std::fixed << std::setprecision(1) << static_cast<double>(f_num) << std::endl;
     return ;
 }
 
@@ -186,9 +186,9 @@ static void print_double_ver(std::string str)
         std::cout << "char: " << static_cast<char>(d_num) << std::endl;
     std::cout << "int: " << static_cast<int>(d_num) << std::endl;
     std::cout << "float: ";
-    std::cout << std::fixed << static_cast<float>(d_num) << "f" << std::endl;
+    std::cout << std::fixed << std::setprecision(1) << static_cast<float>(d_num) << "f" << std::endl;
     std::cout << "double: ";
-    std::cout << std::fixed << (d_num) << std::endl;  
+    std::cout << std::fixed << std::setprecision(1) << (d_num) << std::endl;  
     return ;
 }
 
