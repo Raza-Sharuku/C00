@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 13:36:06 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/03/19 10:53:07 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/20 16:12:51 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,7 +225,7 @@ void ScalarConverter::convert(std::string str)
     
     char_type type;
 
-    std::cout << "\033[1;33m" << "++++++++++++++++++ 2 ++++++++++++++++++++\n" << "\033[0m" << std::endl;
+    std::cout << "\033[1;33m" << "++++++++++++++++++ 2 ++++++++++++++++++++\n" << "\033[0m" << std::endl; 
 
     type = getType(str);
     std::cout <<  "The type of this input is : " << type << " (INVALID = -1, CHAR = 1, INT = 2, FLOAT = 3, DOUBLE = 4)" << std::endl;
