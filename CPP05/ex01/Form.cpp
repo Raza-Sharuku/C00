@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:33:29 by razasharuku       #+#    #+#             */
-/*   Updated: 2024/02/27 15:24:34 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/28 11:00:57 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ Form &Form::operator=(const Form& other)
     std::cout << this->m_name << ": Form: Copy assigment operator called." << std::endl;
     if (this != &other)
     {
+        const_cast<std::string&>(this->m_name) = other.m_name;
+        const_cast<unsigned int&>(this->m_sign_grade) = other.m_sign_grade;
+        const_cast<unsigned int&>(this->m_exec_grade) = other.m_exec_grade;
         this->m_singed = other.m_singed;
     }
     return (*this);
@@ -60,6 +63,11 @@ const std::string Form::getName(void) const
 bool Form::get_sign(void) const
 {
     return (this->m_singed);
+}
+
+void Form::reset_sign(void)
+{
+    this->m_singed = false;
 }
 
 const unsigned int& Form::get_sign_Grade(void) const
@@ -94,6 +102,7 @@ const char *Form::GradeTooLowException::what(void) const throw()
 std::ostream	&operator<<(std::ostream &o, Form &a)
 {
     o << "---------------- " << a.getName() << " ---------------" << "\n"\
+    << "Is Signed ? :" << (a.get_sign() ? "Yes" : "No") << "\n"\
     << "Sign_Grade :" << a.get_sign_Grade() << "\n"\
     << "Execute_Grade :" << a.get_exec_Grade() << std::endl;
 	return (o);

@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:07:43 by sraza             #+#    #+#             */
-/*   Updated: 2024/02/27 19:04:23 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/28 11:59:44 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ class AForm
         const unsigned int  m_sign_grade;
         const unsigned int  m_exec_grade;
         bool                m_singed;
+        const std::string   m_target;
     public:
         // コンストラクタ
-        AForm(std::string name, unsigned int sign_grade, unsigned int exec_grade);
+        AForm(std::string name, unsigned int sign_grade, unsigned int exec_grade, std::string target);
         // コピーコンストラクタ
         AForm(const AForm& other);
         // コピー代入演算子
@@ -40,8 +41,10 @@ class AForm
         // メンバ変数
         const std::string       getName(void) const;
         bool                    get_sign(void) const;
+        void                    reset_sign(void);
         const unsigned int&     get_sign_Grade(void) const;
         const unsigned int&     get_exec_Grade(void) const;
+        const std::string       get_target(void) const;
         void                    beSigned(const Bureaucrat& bureaucrat);
 
         // 純粋仮想関数（抽象クラスにするために）

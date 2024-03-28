@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:24:52 by sraza             #+#    #+#             */
-/*   Updated: 2024/03/02 09:55:17 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/28 13:19:10 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat& other)
     std::cout << this->m_name << ": Bureaucrat: Copy assigment operator called." << std::endl;
     if (this != &other)
     {
+        const_cast<std::string&>(this->m_name) = other.m_name;
         this->m_grade = other.m_grade;
     }
     return (*this);
@@ -60,7 +61,7 @@ Bureaucrat::~Bureaucrat(void)
 }
 
 // member function
-const std::string Bureaucrat::getName(void) const
+const std::string& Bureaucrat::getName(void) const
 {
     return (this->m_name);
 }
@@ -109,9 +110,10 @@ void    Bureaucrat::signForm(AForm& form)
         form.beSigned(*this);
         std::cout << this->getName() << " signed " << form.getName() << std::endl;
     }
-    catch(AForm::GradeTooLowException &e)
+    catch(std::exception &e)
     {
         std::cout << this->getName() << " couldn't signed " << form.getName() << ". Because " << e.what() << std::endl;
+        return ;
     }
 }
 
@@ -122,7 +124,7 @@ void    Bureaucrat::executeForm(AForm const & form)
         form.execute(*this);
         std::cout << this->getName() << " execute " << form.getName() << std::endl;
     }
-    catch(AForm::GradeTooLowException &e)
+    catch(std::exception &e)
     {
         std::cout << this->getName() << " couldn't execute " << form.getName() << ". Because " << e.what() << std::endl;
     }

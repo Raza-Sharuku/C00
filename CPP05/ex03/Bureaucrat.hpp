@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:07:43 by sraza             #+#    #+#             */
-/*   Updated: 2024/03/02 09:55:29 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/01 10:12:19 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <iostream>
 # include <exception>
 # include "AForm.hpp"
-
 
 class AForm;
 
@@ -37,7 +36,7 @@ class Bureaucrat
         ~Bureaucrat(void);
 
         // メンバ変数
-        const std::string       getName(void) const;
+        const std::string&      getName(void) const ;
         const unsigned int&     getGrade(void) const;
         void                    setGrade(unsigned int grade);
         void                    increase_grade(unsigned int grade);
@@ -56,8 +55,6 @@ class Bureaucrat
             public :
                 virtual const char *what() const throw();
         };
-        
-        
 };
 
 std::ostream	&operator<<(std::ostream &o, Bureaucrat &a);

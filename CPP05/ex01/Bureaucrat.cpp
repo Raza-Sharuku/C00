@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:24:52 by sraza             #+#    #+#             */
-/*   Updated: 2024/03/01 10:16:21 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/28 10:20:07 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat& other)
     std::cout << this->m_name << ": Bureaucrat: Copy assigment operator called." << std::endl;
     if (this != &other)
     {
+        const_cast<std::string&>(this->m_name) = other.m_name;
         this->m_grade = other.m_grade;
     }
     return (*this);
@@ -72,10 +73,21 @@ const unsigned int& Bureaucrat::getGrade(void) const
 
 void    Bureaucrat::setGrade(unsigned int grade)
 {
-    if (grade > 150 || grade < 1)
-        std::cout << "Can't Set this value to grade." << std::endl;
-    else 
-        this->m_grade = grade;
+    try
+    {
+        if (grade > 150)
+            throw (GradeTooLowException());
+        else if (grade < 1)
+            throw (GradeTooHighException());
+        else 
+            this->m_grade = grade;
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    
+
     return ;
 }
 

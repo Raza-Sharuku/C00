@@ -12,8 +12,8 @@
 
 #include "AForm.hpp"
 
-AForm::AForm(std::string name, unsigned int sign_grade, unsigned int exec_grade) 
-: m_name(name), m_sign_grade(sign_grade), m_exec_grade(exec_grade), m_singed(false)
+AForm::AForm(std::string name, unsigned int sign_grade, unsigned int exec_grade, std::string target) 
+: m_name(name), m_sign_grade(sign_grade), m_exec_grade(exec_grade), m_singed(false), m_target(target)
 {
     std::cout << this->m_name << ": AForm: Default constructor called." << std::endl;
     if (m_sign_grade < 1 || m_exec_grade < 1)
@@ -30,7 +30,7 @@ AForm::AForm(std::string name, unsigned int sign_grade, unsigned int exec_grade)
 }
 
 AForm::AForm(const AForm& other)
-: m_name(other.m_name), m_sign_grade(other.m_sign_grade), m_exec_grade(other.m_exec_grade), m_singed(other.m_singed)
+: m_name(other.m_name), m_sign_grade(other.m_sign_grade), m_exec_grade(other.m_exec_grade), m_singed(other.m_singed), m_target(other.m_target)
 {
     std::cout << this->m_name << ": AForm: Copy constructor called." << std::endl;
     return ;
@@ -41,6 +41,10 @@ AForm &AForm::operator=(const AForm& other)
     std::cout << this->m_name << ": AForm: Copy assigment operator called." << std::endl;
     if (this != &other)
     {
+        const_cast<std::string&>(this->m_name) = other.m_name;
+        const_cast<std::string&>(this->m_target) = other.m_target;
+        const_cast<unsigned int&>(this->m_sign_grade) = other.m_sign_grade;
+        const_cast<unsigned int&>(this->m_exec_grade) = other.m_exec_grade;
         this->m_singed = other.m_singed;
     }
     return (*this);
@@ -57,9 +61,19 @@ const std::string AForm::getName(void) const
     return (this->m_name);
 }
 
+const std::string AForm::get_target(void) const
+{
+    return (this->m_target);
+}
+
 bool AForm::get_sign(void) const
 {
     return (this->m_singed);
+}
+
+void AForm::reset_sign(void)
+{
+    this->m_singed = false;
 }
 
 const unsigned int& AForm::get_sign_Grade(void) const
@@ -99,6 +113,7 @@ const char *AForm::UnSignedException::what(void) const throw()
 std::ostream	&operator<<(std::ostream &o, AForm &a)
 {
     o << "---------------- " << a.getName() << " ---------------" << "\n"\
+    << "Is Signed ? :" << (a.get_sign() ? "Yes" : "No") << "\n"\
     << "Sign_Grade :" << a.get_sign_Grade() << "\n"\
     << "Execute_Grade :" << a.get_exec_Grade() << std::endl;
 	return (o);

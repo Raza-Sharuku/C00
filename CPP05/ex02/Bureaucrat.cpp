@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:24:52 by sraza             #+#    #+#             */
-/*   Updated: 2024/03/01 11:26:34 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/28 13:19:10 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat& other)
     std::cout << this->m_name << ": Bureaucrat: Copy assigment operator called." << std::endl;
     if (this != &other)
     {
+        const_cast<std::string&>(this->m_name) = other.m_name;
         this->m_grade = other.m_grade;
     }
     return (*this);

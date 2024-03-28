@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:07:43 by sraza             #+#    #+#             */
-/*   Updated: 2024/02/27 15:24:10 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/28 10:50:59 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ class Form
         // メンバ変数
         const std::string       getName(void) const;
         bool                    get_sign(void) const;
+        void                    reset_sign(void);
         const unsigned int&     get_sign_Grade(void) const;
         const unsigned int&     get_exec_Grade(void) const;
         void                    beSigned(const Bureaucrat& bureaucrat);

@@ -6,7 +6,7 @@
 /*   By: razasharuku <razasharuku@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:25:29 by sraza             #+#    #+#             */
-/*   Updated: 2024/02/26 14:50:11 by razasharuku      ###   ########.fr       */
+/*   Updated: 2024/03/28 10:18:48 by razasharuku      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ int main(void)
         std::cout << "\033[1;35m" << "+++++++++++++ TEST 1 _END ++++++++++\n" << "\033[0m" << std::endl;
 
         std::cout << "\033[1;36m" << "+++++++++++++ TEST 2 _START ++++++++++\n" << "\033[0m" << std::endl;
-        Bureaucrat Potter("Potter",0);
-        std::cout << Potter << std::endl;
+        Harry.increase_grade(1);
+        std::cout << Harry << std::endl;
+        std::cout << "\033[1;36m" << "+++++++++++++ TEST 2 _END ++++++++++\n" << "\033[0m" << std::endl;
 	}
     catch(std::exception& e)
     {
 		std::cout << e.what() << std::endl;
-        std::cout << "\033[1;36m" << "+++++++++++++ TEST 2 _END ++++++++++\n" << "\033[0m" << std::endl;
     }
 
 	try
